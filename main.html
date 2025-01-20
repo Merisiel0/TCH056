@@ -1,87 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet-de-Session</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet-de-Session</title>
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="main.css">
+  </head>
 
-<body>
+  <body>
 
-  <!--HEADER-->
-  <header">
-    <button">
-      <img src="./assets/menu.png" alt="menu" width="28">
-    </button>
-    <h1>
-      <img src="./assets/icon.png" alt="icon" width=25>
-      DynamiQ
-    </h1>
-  </header>
+    <!--HEADER-->
+    <header>
 
-  <!--MAIN SECTION-->
-  <main>
-    <h2>Bienvenu au centre sportif DynamiQ</h2>
-    <p>
-      Relevez vos défis et dépassez vos limites chez DynamiQ, votre centre sportif de référence <br> où l’énergie et la performance prennent vie!
-      Découvrez votre plein potentiel dès aujourd’hui !
-    </p>
-    <h3>Nos activités populaires</h3>
-    <p>
-      <img src="./assets/sports/tile000.jpg" alt="soccer" width="200">
-      <img src="./assets/sports/tile001.jpg" alt="badminton" width="200">
-      <img src="./assets/sports/tile002.jpg" alt="swimming" width="200">
-      <img src="./assets/sports/tile003.jpg" alt="hockey" width="200"><br>
-      <a href="./liste-activite.html">Voir toutes nos activités</a>
-    </p>
-  </main>
+      <h1>
+        <img src="./assets/icon.png" alt="icon" width=25>
+        DynamiQ
+      </h1>
 
-  <!--FOOTER-->
-  <footer>
-    <table>
-      <thead>
-        <tr>
-          <th>Nous contacter</th>
-          <th>Proposez un cours chez nous</th>
-          <th>Suivez nous</th>
-        </tr>
-      </thead>
-      <tbody>
+      <div class="hamburger-menu">
+        <input id="burger_toggle" type="checkbox" />
+        <label class="burger_btn" for="burger_toggle">
+          <span></span>
+        </label>
+        <ul class="burger_opened">
+          <li><a class="burger_item" href="./liste-activite.html">Activités</a></li>
+          <li><a class="burger_item" href="./formulaire.html">Formulaire</a></li>
+        </ul>
+      </div>
+
+    </header>
+
+    <!--MAIN SECTION-->
+    <main>
+      <h2>Bienvenu au centre sportif DynamiQ</h2><br>
+      <p>
+        Relevez vos défis et dépassez vos limites chez DynamiQ, votre centre
+        sportif de référence <br> où l’énergie et la performance prennent vie!
+        Découvrez votre plein potentiel dès aujourd’hui !
+      </p><br><br>
+      <h3>Nos activités populaires</h3>
+      <table>
         <tr>
           <td>
-            Adresse : 123 Rue du Sport, Montréal, QC
+            <div class="sport">
+              <img src="./assets/sports/tile000.jpg" alt="soccer" width="200">
+              <div class="text-on-img">
+                <p>
+                  Le football est un sport collectif où deux équipes
+                  s'affrontent
+                  pour marquer des buts avec un ballon rond.
+                </p>
+              </div>
+            </div>
           </td>
           <td>
-            Joignez notre équipe et contribuez à inspirer le bien-être à travers vos compétences sportives.
+            <div class="sport">
+              <img src="./assets/sports/tile001.jpg" alt="tennis"
+                width="200">
+              <div class="text-on-img">
+                <p>
+                  Le tennis est un sport de raquette où deux ou quatre joueurs
+                  s'affrontent en envoyant une balle au-dessus d'un filet.
+                </p>
+              </div>
+            </div>
           </td>
           <td>
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <img src="./assets/social-media-icons/tile000.png" alt="instagram" width="50">
-                  </td>
-                  <td>
-                    <img src="./assets/social-media-icons/tile001.png" alt="facebook" width="50">
-                  </td>
-                  <td>
-                    <img src="./assets/social-media-icons/tile007.png" alt="linkedin" width="50">
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="sport">
+              <img src="./assets/sports/tile002.jpg" alt="natation" width="200">
+              <div class="text-on-img">
+                <p>
+                  La natation est un sport qui consiste à se déplacer dans
+                  l'eau, en utilisant différentes techniques de nage comme la
+                  brasse ou le crawl.
+                </p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="sport">
+              <img src="./assets/sports/tile015.jpg" alt="hockey" width="200">
+              <div class="text-on-img">
+                <p>
+                  Le hockey sur glace est un sport d'équipe joué sur une
+                  patinoire où deux équipes de six joueurs tentent de marquer
+                  des buts avec un palet.
+                </p>
+              </div>
+            </div>
           </td>
         </tr>
-      </tbody>
-    </table>
-    <p>
-      <small>
-        &copy; 2025 Le centre sportif, tous droits réservés.
-      </small>
-    </p>
-  </footer>
+      </table>
+      <a href="./liste-activite.html" class="flex-centered">
+        <button>Voir toutes nos activités</button>
+      </a>
+    </main>
 
-</body>
+    <!--FOOTER-->
+    <footer>
+      <table class="flex-centered">
+        <thead>
+          <tr>
+            <th>Nous contacter</th>
+            <th>Proposez un cours chez nous</th>
+            <th>Suivez nous</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Adresse : 123 Rue du Sport, Montréal, QC
+            </td>
+            <td>
+              Joignez notre équipe et contribuez à inspirer le bien-être à
+              travers vos compétences sportives.
+            </td>
+            <td>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img src="./assets/social-media-icons/tile000.png"
+                        alt="instagram" width="50">
+                    </td>
+                    <td>
+                      <img src="./assets/social-media-icons/tile001.png"
+                        alt="facebook" width="50">
+                    </td>
+                    <td>
+                      <img src="./assets/social-media-icons/tile007.png"
+                        alt="linkedin" width="50">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="grey-text flex-centered">
+        <small>
+          &copy; 2025 Le centre sportif, tous droits réservés.
+        </small>
+      </p>
+    </footer>
+
+  </body>
 
 </html>

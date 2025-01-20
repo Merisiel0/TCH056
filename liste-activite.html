@@ -5,24 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet-de-Session</title>
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="liste-activite.css">
   </head>
 
   <body>
 
     <!--HEADER-->
     <header>
-      <button type="menu">
-        <img src="./assets/menu.png" alt="menu" width="28">
-      </button>
+      
       <h1>
         <img src="./assets/icon.png" alt="icon" width=25>
         DynamiQ
       </h1>
+
+      <div class="hamburger-menu">
+        <input id="burger_toggle" type="checkbox" />
+        <label class="burger_btn" for="burger_toggle">
+          <span></span>
+        </label>
+        <ul class="burger_opened">
+          <li><a class="burger_item" href="./main.html">Principale</a></li>
+          <li><a class="burger_item" href="./formulaire.html">Formulaire</a></li>
+        </ul>
+      </div>
+
+
     </header>
 
     <!--MAIN SECTION-->
     <main>
-      <div>
+      <div class="filtre">
         <h2>Filtrer les activités</h2>
         <form>
           <table>
@@ -31,9 +44,9 @@
                 <th>
                   <label for="level">Niveau :</label>
                   <select name="level">
-                    <option value="0">Beginner</option>
-                    <option value="1">Medium</option>
-                    <option value="2">Advanced</option>
+                    <option value="0">Débutant</option>
+                    <option value="1">Intermédiaire</option>
+                    <option value="2">Avanc.</option>
                     <option value="3">Expert</option>
                   </select>
                 </th>
@@ -52,119 +65,183 @@
                   <label for="schedule">Horaire :</label>
                   <input type="datetime-local" name="schedule">
                 </th>
+                <th>
+                  <button type="button">Appliquer</button>
+                </th>
               </tr>
             </thead>
           </table>
         </form>
       </div>
+
+      <br>
       
       <!-- Images sports-->
-      <div>
-        <table>
-          <!-- Première rangée du tableau-->
-
-          <tr>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile007.jpg" alt="Boxe" width="150">
+      <div class="sports-container">
+        <div class="boxe">
+            <article>
+                <img src="./assets/sports/tile007.jpg" alt="Boxe" width="150"><br>
                 <h3>Boxe</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile006.jpg" alt="Cyclisme" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>La boxe est un sport de combat dans lequel deux participants s'affrontent en utilisant uniquement leurs poings.</p><br>
+                <p>Horaire : Lundi, Mercredi, Vendredi</p><br>
+                <p>Niveau : Débutant</p><br>
+                <p>Entraîneur : Jean Dupont</p><br>
+                <p>Lieu : Intérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="cyclisme">
+            <article>
+                <img src="./assets/sports/tile006.jpg" alt="Cyclisme" width="150"><br>
                 <h3>Cyclisme</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile017.jpg" alt="Escrime" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le cyclisme consiste à se déplacer sur un vélo, que ce soit en compétition ou pour le loisir.</p><br>
+                <p>Horaire : Mardi, Jeudi</p><br>
+                <p>Niveau : Tous</p><br>
+                <p>Entraîneur : Marc Lefevre</p><br>
+                <p>Lieu : Extérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="escrime">
+            <article>
+                <img src="./assets/sports/tile017.jpg" alt="Escrime" width="150"><br>
                 <h3>Escrime</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile000.jpg" alt="Football" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>L'escrime est un sport de combat qui utilise des armes blanches, comme le fleuret, l'épée et le sabre.</p><br>
+                <p>Horaire : Lundi, Jeudi</p><br>
+                <p>Niveau : Intermédiaire</p><br>
+                <p>Entraîneur : Sophie Martin</p><br>
+                <p>Lieu : Intérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="football">
+            <article>
+                <img src="./assets/sports/tile000.jpg" alt="Football" width="150"><br>
                 <h3>Football</h3>
-              </article>
-            </td>
-          </tr>
-
-          <!-- Deuxième rangée du tableau-->
-          <tr>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile019.jpg" alt="Gym" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le football est un sport collectif où deux équipes s'affrontent pour marquer des buts avec un ballon rond.</p><br>
+                <p>Horaire : Mercredi, Vendredi</p><br>
+                <p>Niveau : Avancé</p><br>
+                <p>Entraîneur : Pierre Rousseau</p><br>
+                <p>Lieu : Extérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="gym">
+            <article>
+                <img src="./assets/sports/tile019.jpg" alt="Gym" width="150"><br>
                 <h3>Gym</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile005.jpg" alt="Handball" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le gym dispose de différents appareils et d'un équipement spécialisé qui permettent de faire des exercices visant à améliorer ou à maintenir sa condition physique.</p><br>
+                <p>Horaire : Lundi, Mardi</p><br>
+                <p>Niveau : Tous</p><br>
+                <p>Entraîneur : Claire Lefevre</p><br>
+                <p>Lieu : Intérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="handball">
+            <article>
+                <img src="./assets/sports/tile005.jpg" alt="Handball" width="150"><br>
                 <h3>Handball</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile015.jpg" alt="Hockey" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le handball est un sport collectif où deux équipes de sept joueurs essaient de marquer des buts en lançant un ballon dans le but adverse.</p><br>
+                <p>Horaire : Mardi, Jeudi</p><br>
+                <p>Niveau : Intermédiaire</p><br>
+                <p>Entraîneur : Olivier Dufresne</p><br>
+                <p>Lieu : Intérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="hockey">
+            <article>
+                <img src="./assets/sports/tile015.jpg" alt="Hockey" width="150"><br>
                 <h3>Hockey</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile012.jpg" alt="Mini-golf" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le hockey sur glace est un sport d'équipe joué sur une patinoire où deux équipes de six joueurs tentent de marquer des buts avec un palet.</p><br>
+                <p>Horaire : Lundi, Samedi</p><br>
+                <p>Niveau : Expert</p><br>
+                <p>Entraîneur : Alain Petit</p><br>
+                <p>Lieu : Extérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="minigolf">
+            <article>
+                <img src="./assets/sports/tile012.jpg" alt="Mini-golf" width="150"><br>
                 <h3>Mini-golf</h3>
-              </article>
-            </td>
-          </tr>
-
-          <!-- Troisième rangée du tableau-->
-          <tr>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile002.jpg" alt="Natation" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le mini-golf est une version réduite du golf, où les joueurs essaient de placer une balle dans un trou à travers divers obstacles.</p><br>
+                <p>Horaire : Samedi, Dimanche</p><br>
+                <p>Niveau : Tous</p><br>
+                <p>Entraîneur : Isabelle Bernard</p><br>
+                <p>Lieu : Extérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="natation">
+            <article>
+                <img src="./assets/sports/tile002.jpg" alt="Natation" width="150"><br>
                 <h3>Natation</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile001.jpg" alt="Tennis" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>La natation est un sport qui consiste à se déplacer dans l'eau, en utilisant différentes techniques de nage comme la brasse ou le crawl.</p><br>
+                <p>Horaire : Lundi, Mercredi</p><br>
+                <p>Niveau : Débutant</p><br>
+                <p>Entraîneur : Marie Leclerc</p><br>
+                <p>Lieu : Intérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="tennis">
+            <article>
+                <img src="./assets/sports/tile001.jpg" alt="Tennis" width="150"><br>
                 <h3>Tennis</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile009.jpg" alt="Tir à l'arc" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le tennis est un sport de raquette où deux ou quatre joueurs s'affrontent en envoyant une balle au-dessus d'un filet.</p><br>
+                <p>Horaire : Mardi, Vendredi</p><br>
+                <p>Niveau : Intermédiaire</p><br>
+                <p>Entraîneur : Jacques Leroy</p><br>
+                <p>Lieu : Extérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="tiralarc">
+            <article>
+                <img src="./assets/sports/tile009.jpg" alt="Tir à l'arc" width="150"><br>
                 <h3>Tir à l'arc</h3>
-              </article>
-            </td>
-
-            <td>
-              <article>
-                <img src="./assets/sports/tile021.jpg" alt="Volleyball" width="150">
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le tir à l'arc est un sport de précision où les archers tentent de toucher une cible à l'aide d'un arc et de flèches.</p><br>
+                <p>Horaire : Mercredi, Samedi</p><br>
+                <p>Niveau : Avancé</p><br>
+                <p>Entraîneur : Michel Roche</p><br>
+                <p>Lieu : Extérieur</p><br>
+            </article>
+        </div>
+    
+        <div class="volleyball">
+            <article>
+                <img src="./assets/sports/tile021.jpg" alt="Volleyball" width="150"><br>
                 <h3>Volleyball</h3>
-              </article>
-            </td>
-          </tr>
-        </table>
-          
-      </div>
+                <a href=formulaire.html class="modifier"> Modifier</a>
+                <p>Le volleyball est un sport d'équipe où deux équipes de six joueurs essaient de faire passer un ballon par-dessus un filet sans qu'il touche le sol.</p><br>
+                <p>Horaire : Lundi, Jeudi</p><br>
+                <p>Niveau : Intermédiaire</p><br>
+                <p>Entraîneur : Thomas Gauthier</p><br>
+                <p>Lieu : Intérieur</p><br>
+            </article>
+        </div>
+    </div>
+    
+    
+    
     </main>
 
     <!--FOOTER-->
     <footer>
-      <table>
+      <table class="flex-centered">
         <thead>
           <tr>
             <th>Nous contacter</th>
@@ -204,7 +281,7 @@
           </tr>
         </tbody>
       </table>
-      <p>
+      <p class="grey-text flex-centered">
         <small>
           &copy; 2025 Le centre sportif, tous droits réservés.
         </small>
