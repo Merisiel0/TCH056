@@ -1,121 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet-de-Session</title>
-    <link rel="stylesheet" href="./normalize.css">
-    <link rel="stylesheet" href="./formulaire.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet-de-Session</title>
+  <link rel="stylesheet" href="./formulaire.css">
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</head>
 
-  <body>
+<body>
 
-    <!--HEADER-->
-    <header>
-      <h1>
-        <img src="./assets/icon.png" alt="icon" width=25>
-        DynamiQ
-      </h1>
+  <!--HEADER-->
+  <header>
+    <h1>
+      <img src="./assets/icon.png" alt="icon" width=25 class="logo">
+      DynamiQ
+    </h1>
 
-      <div class="hamburger-menu">
-        <input id="burger_toggle" type="checkbox" />
-        <label class="burger_btn" for="burger_toggle">
-          <span></span>
-        </label>
-        <ul class="burger_opened">
-          <li><a class="burger_item" href="./main.html">Principale</a></li>
-          <li><a class="burger_item" href="./liste-activite.html">Activités</a></li>
-        </ul>
-      </div>
-      
-    </header>
+    <div class="hamburger-menu">
+      <input id="burger_toggle" type="checkbox" />
+      <label class="burger_btn" for="burger_toggle">
+        <span></span>
+      </label>
+      <ul class="burger_opened">
+        <li><button class="burger_item btn-vers-main">Principale</button></li>
+        <li><button class="burger_item btn-vers-liste">Activités</button></li>
+      </ul>
+    </div>
 
-    <!--MAIN SECTION-->
-    <main>
-      <div>
-        <h2>MODIFICATION DE L'ACTIVITÉ</h2>
-        <form action>
-          <label for="name">Nom de l'activité :</label><br>
-          <input type="text" name="name"><br><br>
-          <label for="description">Description :</label><br>
-          <textarea name="description"></textarea><br><br>
-          <label for="image">Image (URL) :</label><br>
-          <input type="url" name="image"><br><br>
-          <label for="level">Niveau :</label><br>
-          <select name="level">
-            <option value="0">Beginner</option>
-            <option value="1">Medium</option>
-            <option value="2">Advanced</option>
-            <option value="3">Expert</option>
-          </select><br><br>
-          <label for="coach">Coach :</label><br>
-          <input type="text" name="coach"><br><br>
-          <label for="schedule">Horaire :</label><br>
-          <input type="datetime-local" name="schedule"><br><br>
-          <label for="place">Lieu :</label><br>
-          <select name="place">
-            <option value="0">Extérieur</option>
-            <option value="1">Intérieur</option>
-          </select><br><br>
-          <div>
-            <a href="./liste-activite.html">
-              <button>Enregistrer</button>
-            </a>
-          </div>
-        </form>
-      </div>
-    </main>
+  </header>
 
-    <!--FOOTER-->
-    <footer>
-      <table class="flex-centered">
-        <thead>
-          <tr>
-            <th>Nous contacter</th>
-            <th>Proposez un cours chez nous</th>
-            <th>Suivez nous</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              Adresse : 123 Rue du Sport, Montréal, QC
-            </td>
-            <td>
-              Joignez notre équipe et contribuez à inspirer le bien-être à
-              travers vos compétences sportives.
-            </td>
-            <td>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img src="./assets/social-media-icons/tile000.png"
-                        alt="instagram" width="50">
-                    </td>
-                    <td>
-                      <img src="./assets/social-media-icons/tile001.png"
-                        alt="facebook" width="50">
-                    </td>
-                    <td>
-                      <img src="./assets/social-media-icons/tile007.png"
-                        alt="linkedin" width="50">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="grey-text flex-centered">
-        <small>
-          &copy; 2025 Le centre sportif, tous droits réservés.
-        </small>
-      </p>
-    </footer>
+  <!--MAIN SECTION-->
+  <main>
+    <div id="mod-form">
+      <h2>AJOUT/MODIFICATION D'ACTIVITÉ</h2>
+      <form action>
+        <label for="name">Nom de l'activité :</label><br>
+        <input type="text" name="name" id="form-name"><br><br>
+        <label for="description">Description :</label><br>
+        <textarea name="description" id="form-description"></textarea><br><br>
+        <label for="image">Image (URL) :</label><br>
+        <input type="text" name="image" id="form-image"><br><br>
+        <label for="level">Niveau :</label><br>
+        <select name="level" id="form-level">
+          <option value="Tous">Tous</option>
+          <option value="Débutant">Débutant</option>
+          <option value="Intermédiaire">Intermédiaire</option>
+          <option value="Avancé">Avancé</option>
+          <option value="Expert">Expert</option>
+        </select><br><br>
+        <label for="coach">Coach :</label><br>
+        <input type="text" name="coach" id="form-coach"><br><br>
+        <label for="schedule">Horaire :</label><br>
+        <input type="text" name="schedule" id="form-day" placeholder=" Jour HH - HH"><br><br>
+        <label for="place">Lieu :</label><br>
+        <select name="place" id="form-location">
+          <option value="Extérieur">Extérieur</option>
+          <option value="Intérieur">Intérieur</option>
+        </select><br><br>
+        <div>
+          <button class="btn-vers-liste" id="save">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </main>
 
-  </body>
+  <!--FOOTER-->
+  <footer>
+    <table class="flex-centered">
+      <thead>
+        <tr>
+          <th>Nous contacter</th>
+          <th>Proposez un cours chez nous</th>
+          <th>Suivez nous</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Adresse : 123 Rue du Sport, Montréal, QC
+          </td>
+          <td>
+            Joignez notre équipe et contribuez à inspirer le bien-être à
+            travers vos compétences sportives.
+          </td>
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="./assets/social-media-icons/tile000.png" alt="instagram" width="50">
+                  </td>
+                  <td>
+                    <img src="./assets/social-media-icons/tile001.png" alt="facebook" width="50">
+                  </td>
+                  <td>
+                    <img src="./assets/social-media-icons/tile007.png" alt="linkedin" width="50">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="grey-text flex-centered">
+      <small>
+        &copy; 2025 Le centre sportif, tous droits réservés.
+      </small>
+    </p>
+  </footer>
+
+</body>
 
 </html>

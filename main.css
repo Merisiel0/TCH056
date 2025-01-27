@@ -96,6 +96,7 @@ https://alvarotrigo.com/blog/hamburger-menu-css/
   font-weight: 600;
   text-decoration: none;
   transition-duration: .25s;
+  width: 100%;
 }
 
 .burger_item:hover {
@@ -166,10 +167,19 @@ main button {
   100% {opacity: 1;}
 }
 
+#popular-activities {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+    
+}
+
+
 .sport{
   position: relative;
   animation: 1.5s ease-in-out fade-in;
 }
+
 
 @media (min-width: 1080px) {
   .sport img {

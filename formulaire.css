@@ -88,6 +88,7 @@ https://alvarotrigo.com/blog/hamburger-menu-css/
   font-weight: 600;
   text-decoration: none;
   transition-duration: .25s;
+  width: 100%;
 }
 
 .burger_item:hover {
@@ -132,14 +133,21 @@ main{
 }
 
 main div {
+  transform: scale(1.15);
   background-color: rgb(231, 231, 231);
   padding: 15px;
   display: flex;
   flex-direction: column;
-  width: 410px;
+  width: 500px;
   margin: auto;
+  margin-top: 5%;
   align-items: center;
   border-radius: 10px;
+}
+
+main div #form-description{
+  width: 350px;
+  height: 80px;
 }
 
 form div{
@@ -179,6 +187,7 @@ footer{
   justify-content: space-evenly;
   position: absolute;
   width: 100%;
+  bottom: 1;
 }
 
 /*

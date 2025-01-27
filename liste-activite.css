@@ -88,6 +88,7 @@ https://alvarotrigo.com/blog/hamburger-menu-css/
   font-weight: 600;
   text-decoration: none;
   transition-duration: .25s;
+  width: 100%;
 }
 
 .burger_item:hover {
@@ -130,13 +131,18 @@ header button {
 */
 .filtre {
   background-color: rgb(231, 231, 231);
+  justify-content: space-between;
 }
+
 
 .filtre select, input {
   border-radius: 10px;
   border-width: 1px;
 }
 
+.filtre th {
+  padding: 0px 20px; /* Ajoute de l'espace entre les différents filtres */
+}
 
 /* Rendre le bouton filtre beau */
 .filtre button {
@@ -195,7 +201,7 @@ header button {
 }
 
 /* Bouton Modifier */
-.sports-container a {
+.sports-container button {
   display: inline-block;
   margin-left: 1.5rem;
   background-color: #fca311ff;
@@ -208,13 +214,34 @@ header button {
   height: 35px;
   text-align: center;
   line-height: 38px;
+  cursor: pointer;
   transition: box-shadow 0.25s ease-in-out, text-shadow 0.25s ease-in-out;
 }
 
 /* Animations des boutons filtre et modifier*/
-.sports-container a:hover , .filtre button:hover{
+.sports-container button:hover , .filtre button:hover, #ajouter:hover{
   box-shadow: 0px 0px 15px 1px rgb(20, 33, 61);
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style du bouton ajouter activité*/
+#ajouter {
+  width: 10%;
+  height: 50px;
+  background-color: #fca311ff;
+  border: none;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease-in-out, text-shadow 0.25s ease-in-out;
+}
+
+/* Centrer bouton ajouter */
+.ajouter-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
 }
 
 
@@ -229,8 +256,7 @@ footer{
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  
+  justify-content: space-evenly;  
 }
 
 .grey-text{
