@@ -165,180 +165,230 @@ function displayPopularActivities() {
 
 // gestion des filtres pour la page des activitÃ©s
 function populateFilters() {
-
     const filtresTable = document.querySelector('.filtre tr');
 
+
     // -------- Niveau -----------
-    let niveauTh = document.createElement("th");
-    filtresTable.append(niveauTh); // ajouter avant le bouton
+    function afficherNiveau() {
+        let niveauTh = document.createElement("th");
+        filtresTable.append(niveauTh); // ajouter avant le bouton
 
-    let niveauLabel = document.createElement("label");
-    niveauLabel.setAttribute("for", "level");
-    niveauLabel.innerText = "Niveau :";
-    niveauTh.appendChild(niveauLabel);
+        let niveauLabel = document.createElement("label");
+        niveauLabel.setAttribute("for", "level");
+        niveauLabel.innerText = "Niveau :";
+        niveauTh.appendChild(niveauLabel);
 
-    let niveauSelect = document.createElement("select");
-    niveauSelect.setAttribute("name", "level");
-    niveauSelect.setAttribute("id", "level");
-    niveauTh.appendChild(niveauSelect);
+        let niveauSelect = document.createElement("select");
+        niveauSelect.setAttribute("name", "level");
+        niveauSelect.setAttribute("id", "level");
+        niveauTh.appendChild(niveauSelect);
 
-    const levelsSet = new Set();
-    for (const activity of activities) {
-        if (activity.level != "Tous") { // Je traite 'Tous' apart
-            levelsSet.add(activity.level);
+        const levelsSet = new Set();
+        for (const activity of activities) {
+            if (activity.level != "Tous") { // Je traite 'Tous' apart
+                levelsSet.add(activity.level);
+            }
+        }
+
+        const levels = ["Tous", ...levelsSet];
+
+        for (let i = 0; i < levels.length; i++) {
+            let niveauOption = document.createElement("option");
+            niveauOption.value = i;  // Valeur de l'option
+            niveauOption.innerText = levels[i];  // Texte de l'option
+
+            niveauSelect.appendChild(niveauOption);
         }
     }
 
-    const levels = ["Tous", ...levelsSet];
 
-    for (let i = 0; i < levels.length; i++) {
-        let niveauOption = document.createElement("option");
-        niveauOption.value = i;  // Valeur de l'option
-        niveauOption.innerText = levels[i];  // Texte de l'option
-
-        niveauSelect.appendChild(niveauOption);
-    }
 
     // ------- place ---------
-    let placeTh = document.createElement("th");
-    filtresTable.append(placeTh);
+    function afficherPlace() {
+        let placeTh = document.createElement("th");
+        filtresTable.append(placeTh);
 
-    let placeLabel = document.createElement("label");
-    placeLabel.setAttribute("for", "place");
-    placeLabel.innerText = "Lieu :";
-    placeTh.appendChild(placeLabel);
+        let placeLabel = document.createElement("label");
+        placeLabel.setAttribute("for", "place");
+        placeLabel.innerText = "Lieu :";
+        placeTh.appendChild(placeLabel);
 
-    let placeSelect = document.createElement("select");
-    placeSelect.setAttribute("name", "place");
-    placeSelect.setAttribute("id", "location");
-    placeTh.appendChild(placeSelect);
+        let placeSelect = document.createElement("select");
+        placeSelect.setAttribute("name", "place");
+        placeSelect.setAttribute("id", "location");
+        placeTh.appendChild(placeSelect);
 
-    const placesSet = new Set();
-    for (const activity of activities) {
-        if (activity.location != "Tous") { // Je traite 'Tous' apart
-            placesSet.add(activity.location);
+        const placesSet = new Set();
+        for (const activity of activities) {
+            if (activity.location != "Tous") { // Je traite 'Tous' apart
+                placesSet.add(activity.location);
+            }
+        }
+
+        const places = ["Tous", ...placesSet];
+
+        for (let i = 0; i < places.length; i++) {
+            let placeOption = document.createElement("option");
+            placeOption.value = i;
+            placeOption.innerText = places[i];
+
+            placeSelect.appendChild(placeOption);
         }
     }
+        // -------- Coach ---------
+    function afficherCoach() {
+        let coachTh = document.createElement("th");
+        filtresTable.append(coachTh);
 
-    const places = ["Tous", ...placesSet];
+        let coachLabel = document.createElement("label");
+        coachLabel.setAttribute("for", "coach");
+        coachLabel.innerText = "Coach :";
+        coachTh.appendChild(coachLabel);
 
-    for (let i = 0; i < places.length; i++) {
-        let placeOption = document.createElement("option");
-        placeOption.value = i;
-        placeOption.innerText = places[i];
+        let coachSelect = document.createElement("select");
+        coachSelect.setAttribute("name", "coach");
+        coachSelect.setAttribute("id", "coach");
+        coachTh.appendChild(coachSelect);
 
-        placeSelect.appendChild(placeOption);
-    }
-
-    // -------- Coach ---------
-    let coachTh = document.createElement("th");
-    filtresTable.append(coachTh);
-
-    let coachLabel = document.createElement("label");
-    coachLabel.setAttribute("for", "coach");
-    coachLabel.innerText = "Coach :";
-    coachTh.appendChild(coachLabel);
-
-    let coachSelect = document.createElement("select");
-    coachSelect.setAttribute("name", "coach");
-    coachSelect.setAttribute("id", "coach");
-    coachTh.appendChild(coachSelect);
-
-    const coachesSet = new Set();
-    for (const activity of activities) {
-        if (activity.coach != "Tous") { // Je traite 'Tous' apart
-            coachesSet.add(activity.coach);
+        const coachesSet = new Set();
+        for (const activity of activities) {
+            if (activity.coach != "Tous") { // Je traite 'Tous' apart
+                coachesSet.add(activity.coach);
+            }
         }
-    }
 
-    const coaches = ["Tous", ...coachesSet];
+        const coaches = ["Tous", ...coachesSet];
 
-    for (let i = 0; i < coaches.length; i++) {
-        let coachOption = document.createElement("option");
-        coachOption.value = i;
-        coachOption.innerText = coaches[i];
+        for (let i = 0; i < coaches.length; i++) {
+            let coachOption = document.createElement("option");
+            coachOption.value = i;
+            coachOption.innerText = coaches[i];
 
-        coachSelect.appendChild(coachOption);
+            coachSelect.appendChild(coachOption);
+        }
     }
 
     // -------- Jour ---------
-    let jourTh = document.createElement("th");
-    filtresTable.append(jourTh);
+    function afficherJour() {
+        let jourTh = document.createElement("th");
+        filtresTable.append(jourTh);
 
-    let jourLabel = document.createElement("label");
-    jourLabel.setAttribute("for", "jour");
-    jourLabel.innerText = "Jour :";
-    jourTh.appendChild(jourLabel);
+        let jourLabel = document.createElement("label");
+        jourLabel.setAttribute("for", "jour");
+        jourLabel.innerText = "Jour :";
+        jourTh.appendChild(jourLabel);
 
-    let jourSelect = document.createElement("select");
-    jourSelect.setAttribute("name", "jour");
-    jourSelect.setAttribute("id", "day");
-    jourTh.appendChild(jourSelect);
+        let jourSelect = document.createElement("select");
+        jourSelect.setAttribute("name", "jour");
+        jourSelect.setAttribute("id", "day");
+        jourTh.appendChild(jourSelect);
 
-    const jours = ["Tous", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+        const jours = ["Tous", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
 
-    for (let i = 0; i < jours.length; i++) {
-        let jourOption = document.createElement("option");
-        jourOption.value = i;
-        jourOption.innerText = jours[i];
+        for (let i = 0; i < jours.length; i++) {
+            let jourOption = document.createElement("option");
+            jourOption.value = i;
+            jourOption.innerText = jours[i];
 
-        jourSelect.appendChild(jourOption);
+            jourSelect.appendChild(jourOption);
+        }
+    }
+    // -------- Bouton appliquer ----------
+    function boutonAppliquer() {
+        let appliquer = document.createElement("button");
+        appliquer.setAttribute('type', 'button');
+        appliquer.innerText = 'Appliquer';
+        filtresTable.appendChild(appliquer);
+
+        // Ajouter action listener
+        appliquer.addEventListener('click', () => {
+
+            // S'assurer que le html est vide
+            const activitiesContainer = document.getElementById('sports-liste');
+            activitiesContainer.innerHTML = "";
+
+            // DÃ©finir les filtres
+
+            let filters = {
+                level: null,
+                location: null,
+                coach: null,
+                day: null,
+            };
+
+            // Filtre du niveau
+            if (document.getElementById("level").value === "0") {
+                filters.level = "Tous";
+            } else {
+                filters.level = document.getElementById("level").options[document.getElementById("level").selectedIndex].text;
+            }
+
+            // Filtre de la place
+            if (document.getElementById("location").value === "0") {
+                filters.location = "Tous";
+            } else {
+                filters.location = document.getElementById("location").options[document.getElementById("location").selectedIndex].text;
+            }
+
+            // Filtre du coach
+            if (document.getElementById("coach").value === "0") {
+                filters.coach = "Tous";
+            } else {
+                filters.coach = document.getElementById("coach").options[document.getElementById("coach").selectedIndex].text;
+            }
+
+            // Filtre du jour
+            if (document.getElementById("day").value === "0") {
+                filters.day = "Tous";
+            } else {
+                filters.day = document.getElementById("day").options[document.getElementById("day").selectedIndex].text;
+            }
+
+
+            displayFilteredActivities(filters);
+        });
     }
 
-
-    // -------- Bouton appliquer ----------
-    let appliquer = document.createElement("button");
-    appliquer.setAttribute('type', 'button');
-    appliquer.innerText = 'Appliquer';
-    filtresTable.appendChild(appliquer);
-
-    // Ajouter action listener
-    appliquer.addEventListener('click', () => {
-
-        // S'assurer que le html est vide
-        const activitiesContainer = document.getElementById('sports-liste');
-        activitiesContainer.innerHTML = "";
-
-        // Définir les filtres
-
-        let filters = {
-            level: null,
-            location: null,
-            coach: null,
-            day: null,
-        };
-
-        // Filtre du niveau
-        if (document.getElementById("level").value === "0") {
-            filters.level = "Tous";
-        } else {
-            filters.level = document.getElementById("level").options[document.getElementById("level").selectedIndex].text;
-        }
-
-        // Filtre de la place
-        if (document.getElementById("location").value === "0") {
-            filters.location = "Tous";
-        } else {
-            filters.location = document.getElementById("location").options[document.getElementById("location").selectedIndex].text;
-        }
-
-        // Filtre du coach
-        if (document.getElementById("coach").value === "0") {
-            filters.coach = "Tous";
-        } else {
-            filters.coach = document.getElementById("coach").options[document.getElementById("coach").selectedIndex].text;
-        }
-
-        // Filtre du jour
-        if (document.getElementById("day").value === "0") {
-            filters.day = "Tous";
-        } else {
-            filters.day = document.getElementById("day").options[document.getElementById("day").selectedIndex].text;
-        }
+    // Tout afficher
+    afficherNiveau();
+    afficherPlace();
+    afficherCoach();
+    afficherJour();
+    boutonAppliquer();
 
 
-        displayFilteredActivities(filters);
-    });
+}
+
+function isValidActivity(i, filters){
+  return (activities[i].level === filters.level || filters.level === "Tous")
+  && (activities[i].location === filters.location || filters.location === "Tous")
+  && (activities[i].coach === filters.coach || filters.coach === "Tous")
+  && (activities[i].schedule_day === filters.day || filters.day === "Tous")
+}
+
+function createActivity(i){
+  let activityElement = document.createElement("div");
+  activityElement.className = activities[i].name.toLowerCase();
+
+  activityElement.innerHTML = `
+      <article>
+          <img src="${activities[i].image}" alt="${activities[i].name}" width="150"><br>
+          <h3>${activities[i].name}</h3>
+          <button class="modifier">Modifier</Button>
+          <p>${activities[i].description}</p><br>
+          <p>Horaire : ${activities[i].schedule_day}</p><br>
+          <p>Niveau : ${activities[i].level}</p><br>
+          <p>Entraîneur : ${activities[i].coach}</p><br>
+          <p>Lieu : ${activities[i].location}</p><br>
+      </article>
+  `;
+
+  let btn = activityElement.querySelector('.modifier');
+  btn.addEventListener("click", () => {
+      window.location.href = "formulaire.html?id=" + activities[i].id;
+  });
+
+  return activityElement;
 }
 
 // affiche toutes les activitÃ©s filtres pour la page des activitÃ©s
@@ -347,33 +397,12 @@ function displayFilteredActivities(filters) {
 
     let counter = 0;
     for (let i = 0; i < activities.length; i++) {
-        if ((activities[i].level === filters.level || filters.level === "Tous")
-            && (activities[i].location === filters.location || filters.location === "Tous")
-            && (activities[i].coach === filters.coach || filters.coach === "Tous")
-            && (activities[i].schedule_day === filters.day || filters.day === "Tous")) {
+        if (isValidActivity(i, filters)) {
 
-            let activityElement = document.createElement("div");
-            activityElement.className = activities[i].name.toLowerCase();
-
-            activityElement.innerHTML = `
-                <article>
-                    <img src="${activities[i].image}" alt="${activities[i].name}" width="150"><br>
-                    <h3>${activities[i].name}</h3>
-                    <button class="modifier">Modifier</Button>
-                    <p>${activities[i].description}</p><br>
-                    <p>Horaire : ${activities[i].schedule_day}</p><br>
-                    <p>Niveau : ${activities[i].level}</p><br>
-                    <p>Entraîneur : ${activities[i].coach}</p><br>
-                    <p>Lieu : ${activities[i].location}</p><br>
-                </article>
-            `;
-
-            let btn = activityElement.querySelector('.modifier');
-            btn.addEventListener("click", () => {
-                window.location.href = "formulaire.html?id=" + activities[i].id;
-            });
+            let activityElement = createActivity(i);
 
             activitiesContainer.append(activityElement);
+            
             counter++;
         }
     }
