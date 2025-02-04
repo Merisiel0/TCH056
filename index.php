@@ -1,3 +1,14 @@
+<?php
+include 'config.php';
+
+if (!isset($_SESSION['login'])) {
+  header('Location: login.php');
+  die();
+}
+
+$activities = getActivities();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +16,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projet-de-Session</title>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="index.css">
   <script defer src="data.js"></script>
   <script defer src="main.js"></script>
 </head>
@@ -27,6 +38,8 @@
       <ul class="burger_opened">
         <li><button class="burger_item btn-vers-liste">Activités</button></li>
         <li><button class="burger_item btn-vers-formulaire">Formulaire</button></li>
+        <li><button class="burger_item btn-vers-login">Login</button></li>
+        <li><button class="burger_item btn-vers-register">S'enregistrer</button></li>
       </ul>
     </div>
   </header>
@@ -41,8 +54,21 @@
     </p><br><br>
     <h3>Nos activités populaires</h3>
     <div id="popular-activities">
-
-    </div> <!-- Conteneur vide pour activités, généré à partir de data.js-->
+      <?php
+      for ($i = 0; $i < min(4, count($activities)); $i++) {
+        $src = $activities[$i]['image'];
+        $name = $activities[$i]['name'];
+        $description = $activities[$i]['description'];
+        echo "<script>console.log($src);</script>";
+        echo "<div class='sport'>";
+        echo "<img src='$src' alt='$name'>";
+        echo "<div class='text-on-img'>";
+        echo "<p>$description</p>";
+        echo "</div>";
+        echo "</div>";
+      }
+      ?>
+    </div>
     <button class="flex-centered btn-vers-liste">Voir toutes nos activités</button>
   </main>
 

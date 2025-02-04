@@ -175,6 +175,7 @@ header button {
 .sports-container > div {
   display: flex;
   background-color: #f0f0f0;
+  margin-top: 25px;
   padding: 15px;
   border-radius: 12px;
   margin-left: 20px;
@@ -195,8 +196,6 @@ header button {
   position: relative;
   bottom: 10rem;
   left: 11rem;
-  word-wrap: break-word; /* Empêche le texte de déborder */
-  max-width: calc(100% - 150px); 
 
 }
 

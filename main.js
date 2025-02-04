@@ -1,47 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Vérifiez que la page est loadée
 
-    if (document.querySelector('#popular-activities')) {
-        // Page d'accueil
-        displayPopularActivities();
-    }
-
-    if (document.querySelector(".filtre")) {
-        populateFilters();
-    }
-
-    if (document.querySelector('#sports-liste')) {
-        let filtres = {};
-
-        let sel = document.getElementById("level");
-        filtres.level = sel.options[sel.selectedIndex].text;
-
-        sel = document.getElementById("location");
-        filtres.location = sel.options[sel.selectedIndex].text;
-
-        sel = document.getElementById("coach");
-        filtres.coach = sel.options[sel.selectedIndex].text;
-
-        sel = document.getElementById("day");
-        filtres.day = sel.options[sel.selectedIndex].text;
-
-
-        displayFilteredActivities(filtres);
-    }
 
     if (document.querySelector("#mod-form")) {
         let params = new URLSearchParams(document.location.search);
-        if(params.has('id')){
+        if (params.has('id')) {
             let id = params.get('id');
             populateForm(id);
         }
     }
 
+    // Gestion des boutons de navigation
     let btnArray = document.querySelectorAll(".btn-vers-main");
     for (let i = 0; i < btnArray.length; i++) {
         btnArray[i].addEventListener("click", () => {
             console.log("-> main");
-            window.location.href = "main.html";
+            window.location.href = "index.php";
         });
     }
 
@@ -49,25 +22,37 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < btnArray.length; i++) {
         btnArray[i].addEventListener("click", () => {
             console.log("-> liste");
-
             if (document.getElementById("save")) {
                 event.preventDefault();
             }
-
-            window.location.href = "liste-activite.html";
+            window.location.href = "liste-activite.php";
         });
     }
 
     btnArray = document.querySelectorAll(".btn-vers-formulaire");
     for (let i = 0; i < btnArray.length; i++) {
         btnArray[i].addEventListener("click", () => {
-        window.location.href = "formulaire.html";
+            window.location.href = "formulaire.php";
+        });
+    }
+
+    btnArray = document.querySelectorAll(".btn-vers-login");
+    for (let i = 0; i < btnArray.length; i++) {
+        btnArray[i].addEventListener("click", () => {
+            window.location.href = "login.php";
+        });
+    }
+
+    btnArray = document.querySelectorAll(".btn-vers-register");
+    for (let i = 0; i < btnArray.length; i++) {
+        btnArray[i].addEventListener("click", () => {
+            window.location.href = "register.php";
         });
     }
 
     let logo = document.querySelector(".logo");
     logo.style.cursor = "pointer";
     logo.addEventListener("click", () => {
-        window.location.href = "main.html";
+        window.location.href = "index.php";
     });
 });

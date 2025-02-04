@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projet-de-Session</title>
-  <link rel="stylesheet" href="liste-activite.css">
+  <link rel="stylesheet" href="./formulaire.css">
   <script src="data.js"></script>
   <script src="main.js"></script>
 </head>
@@ -14,7 +14,6 @@
 
   <!--HEADER-->
   <header>
-
     <h1>
       <img src="./assets/icon.png" alt="icon" width=25 class="logo">
       DynamiQ
@@ -26,42 +25,48 @@
         <span></span>
       </label>
       <ul class="burger_opened">
-        <li><button class="burger_item btn-vers-main">Principale</btton></li>
-        <li><button class="burger_item btn-vers-formulaire">Formulaire</button></li>
+      <li><button class="burger_item btn-vers-main">Principale</button></li>
+        <li><button class="burger_item btn-vers-liste">Activités</button></li>
+        <li><button class="burger_item btn-vers-login">Login</button></li>
+        <li><button class="burger_item btn-vers-register">S'enregistrer</button></li>
       </ul>
     </div>
-
 
   </header>
 
   <!--MAIN SECTION-->
   <main>
-    <div class="filtre">
-      <h2>Filtrer les activités</h2>
-      <form>
-        <table>
-          <thead>
-            <tr>
-              <!-- Ici sera inséré les filtres à partir de JS-->
-            </tr>
-          </thead>
-        </table>
+    <div id="mod-form">
+      <h2>AJOUT/MODIFICATION D'ACTIVITÉ</h2>
+      <form action>
+        <label for="name">Nom de l'activité :</label><br>
+        <input type="text" name="name" id="form-name"><br><br>
+        <label for="description">Description :</label><br>
+        <textarea name="description" id="form-description"></textarea><br><br>
+        <label for="image">Image (URL) :</label><br>
+        <input type="text" name="image" id="form-image"><br><br>
+        <label for="level">Niveau :</label><br>
+        <select name="level" id="form-level">
+          <option value="Tous">Tous</option>
+          <option value="Débutant">Débutant</option>
+          <option value="Intermédiaire">Intermédiaire</option>
+          <option value="Avancé">Avancé</option>
+          <option value="Expert">Expert</option>
+        </select><br><br>
+        <label for="coach">Coach :</label><br>
+        <input type="text" name="coach" id="form-coach"><br><br>
+        <label for="schedule">Horaire :</label><br>
+        <input type="text" name="schedule" id="form-day" placeholder=" Jour HH - HH"><br><br>
+        <label for="place">Lieu :</label><br>
+        <select name="place" id="form-location">
+          <option value="Extérieur">Extérieur</option>
+          <option value="Intérieur">Intérieur</option>
+        </select><br><br>
+        <div>
+          <button class="btn-vers-liste" id="save">Enregistrer</button>
+        </div>
       </form>
     </div>
-
-    <br>
-
-    <!-- Images sports-->
-    <div class="sports-container" id="sports-liste">
-      <!-- Ici seront insérés les filtres à partir de JS-->
-    </div>
-
-    <div class="ajouter-container">
-      <button id="ajouter" class="btn-vers-formulaire">
-        Ajouter une activité
-      </button>
-    </div>
-
   </main>
 
   <!--FOOTER-->

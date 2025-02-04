@@ -8,6 +8,14 @@ Ceci s'assure qu'il n'y a pas d'espace blanc entre le header et la partie filtre
   box-sizing: border-box; 
 }
 
+html{
+  display: grid;
+  grid-template: 
+  "header" auto
+  "main" auto
+  "footer" auto
+}
+
 /*
 ****** Style du burger menu ********
 tutoriel suivi:
@@ -95,11 +103,11 @@ https://alvarotrigo.com/blog/hamburger-menu-css/
   background-color: rgb(194, 124, 12);
 }
 
-
 /*
 ****** Style du header ********
 */
 header {
+  grid-area: header;
   background-color: #fca311ff;
   display: flex;
   justify-content: space-between;
@@ -129,70 +137,97 @@ header button {
 ****** Style du main ********
 */
 main{
-  padding: 5%;
-}
-
-main div {
-  transform: scale(1.15);
-  background-color: rgb(231, 231, 231);
-  padding: 15px;
+  grid-area: main;
   display: flex;
   flex-direction: column;
-  width: 500px;
-  margin: auto;
-  margin-top: 5%;
-  align-items: center;
-  border-radius: 10px;
+  padding: 2%;
 }
 
-main div #form-description{
-  width: 350px;
-  height: 80px;
+main h2 {
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.9);
 }
 
-form div{
-  width: 100%;
+@keyframes animationbouton {
+  50% {box-shadow: 0px 0px 15px 1px rgb(20, 33, 61);}
 }
 
-select, input, textarea {
-  border-radius: 7px;
-  border-width: 1px;
-}
-
-form button{
-  width: 80px;
-  height: 35px;
+main button {
+  width: 175px;
+  height: 45px;
   background-color: #fca311ff;
   border: none;
   border-radius: 10px;
   font-family: Arial, sans-serif;
   cursor: pointer;
-  transition: box-shadow 0.25s ease-in-out, text-shadow 0.25s ease-in-out;
+  animation: animationbouton 2s infinite ease-in-out;
 }
 
-/* Animations du bouton enregistrer*/
-form button:hover{
-  box-shadow: 0px 0px 15px 1px rgb(20, 33, 61);
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+@keyframes fade-in {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+#popular-activities {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+    
+}
+
+
+.sport{
+  position: relative;
+  animation: 1.5s ease-in-out fade-in;
+}
+
+
+@media (min-width: 1080px) {
+  .sport img {
+    width: 250px;
+  }
+
+}
+
+.text-on-img{
+  position: absolute;
+  background: rgba(0, 0, 0, 0);
+  width: 200px;
+  color: transparent;
+  bottom: 8px;
+  text-align: center;
+}
+
+.sport:hover .text-on-img{
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 200px;
+  color: white;
+  bottom: 8px;
+  text-align: center;
+  animation: 0.3s ease-in-out fade-in;
+}
+
+@media (min-width: 1080px) {
+  .sport:hover .text-on-img {
+    width: 250px;
+  }
+
 }
 
 /*
 ****** Style du footer ********
 */
 footer{
+  grid-template: footer;
   background: rgb(20, 33, 61);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  position: sticky;
+  position: absolute;
   width: 100%;
+  bottom: 0;
 }
-
-
-
-
-
 
 /*
 ****** Autre ********
@@ -204,4 +239,8 @@ footer{
 .flex-centered{
   justify-self: center;
   align-self: center;
+}
+
+td{
+  padding: 1%;
 }
