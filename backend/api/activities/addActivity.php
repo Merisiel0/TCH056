@@ -9,33 +9,45 @@ function addActivity() {
 
     global $pdo;
 
+
     // Vérifie que la requête est bien une requête POST
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') { 
         http_response_code(405);
         echo json_encode(["error" => "Method HTTP non autorisée"]);
         exit();
     }
+    
 
     // Récupération des données envoyées
     $input = json_decode(file_get_contents('php://input'), true);
 
-
-
-    // Vérification que tous les champs nécessaires sont présents
-    if (!isset(
-        $input['name'],
-        $input['description'],
-        $input['image'],
-        $input['level_name'],
-        $input['coach_name'],
-        $input['schedule_day'],
-        $input['schedule_time'],
-        $input['location_name']
-    )) {
-        http_response_code(400);
-        echo json_encode(["error" => "Champs manquants"]);
-        exit();
+    function isBlank($value) {
+        return !isset($value) || $value === "";
     }
+
+
+    // Vérification que tous les champs nécessaires sont présents 
+    // et qu'ils ne sont pas vides
+
+    $requiredFields = [
+        'name',
+        'description',
+        'image',
+        'level_name',
+        'coach_name',
+        'schedule_day',
+        'schedule_time',
+        'location_name'
+    ];
+
+    foreach ($requiredFields as $field) {
+        if (isBlank($input[$field])) {
+            http_response_code(400);
+            echo json_encode(["error" => "Champ manquant ou vide: {$field}"]);
+            exit();
+        }
+    }
+
 
     try {
         $pdo->beginTransaction();

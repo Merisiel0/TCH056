@@ -9,6 +9,10 @@ function updateActivity() {
 
   global $pdo;
 
+  function isBlank($value) {
+    return !isset($value) || $value === "";
+    }
+
   // Vérifier que la méthode est bien PUT
   if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
       http_response_code(405);
@@ -37,7 +41,7 @@ function updateActivity() {
   // Vérifier que tous les champs nécessaires sont bien envoyés
   $requiredFields = ['name', 'description', 'image', 'level_name', 'coach_name', 'schedule_day', 'schedule_time', 'location_name'];
   foreach ($requiredFields as $field) {
-      if (!isset($input[$field])) {
+      if (isBlank($input[$field])) {
           http_response_code(400);
           echo json_encode(["error" => "Champs manquants: $field"]);
           exit();

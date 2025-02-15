@@ -31,6 +31,7 @@ function activity() {
     INNER JOIN locations LO ON A.location_id=LO.id 
     WHERE A.id = :i";
 
+    // Exécuter requête SQL
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(":i", $activityId);
     $stmt->execute();

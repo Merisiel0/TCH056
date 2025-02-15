@@ -1,5 +1,4 @@
 <?php
-// Assurez-vous d'inclure le router s'il n'est pas déjà chargé
 require_once __DIR__ . '/router.php';
 
 require 'api/activities/randomActivities.php';
